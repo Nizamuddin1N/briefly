@@ -1,0 +1,24 @@
+# Only the FastAPI app and its dependencies belong in the serverless bundle.
+frontend/
+venv/
+chroma_db/
+__pycache__/
+.pytest_cache/
+
+# Standalone learning scripts — not part of the deployed API.
+agent.py
+chat.py
+embeddings.py
+main.py
+rag.py
+rag_production.py
+structured.py
+requirements-rag.txt
+
+# Tests
+test_agent.py
+test_api.py
+
+# Docs
+README.md
+LICENSE

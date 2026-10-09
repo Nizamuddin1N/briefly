@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------
+   Palettes. The pre-paint script in index.html sets data-theme before first
+   paint, so these never flash. Values are raw here and mapped into Tailwind's
+   token space in the @theme block below.
+   --------------------------------------------------------------------------- */
+
+:root,
+[data-theme='light'] {
+  --paper: #f2f4f6; /* app background — cool archival grey, not cream */
+  --sheet: #ffffff; /* the report page */
+  --ink: #1c2633;
+  --graphite: #5a6675;
+  --rule: #d6dce3;
+  --teal: #0f6b6b;
+  --teal-contrast: #ffffff; /* text on a teal fill */
+  --highlighter: #f4d35e;
+  --highlighter-soft: rgb(244 211 94 / 0.45);
+  --danger: #b3261e;
+  --danger-soft: rgb(179 38 30 / 0.08);
+}
+
+[data-theme='dark'] {
+  --paper: #111923; /* deep ink blue, not tinted black */
+  --sheet: #18222e;
+  --ink: #e4e9ef;
+  --graphite: #94a1b0;
+  --rule: #2a3644;
+  --teal: #5cc2be;
+  --teal-contrast: #0c1620;
+  --highlighter: #e6c34a;
+  --highlighter-soft: rgb(230 195 74 / 0.35);
+  --danger: #f2a19b;
+  --danger-soft: rgb(242 161 155 / 0.12);
+}
+
+/* ---------------------------------------------------------------------------
+   Tailwind v4 theme mapping. Utilities resolve through these to the palette
+   variables above, so a data-theme switch repaints without regenerating CSS.
+   --------------------------------------------------------------------------- */
+
+@theme {
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-ink: var(--ink);
+  --color-graphite: var(--graphite);
+  --color-rule: var(--rule);
+  --color-teal: var(--teal);
+  --color-teal-contrast: var(--teal-contrast);
+  --color-highlighter: var(--highlighter);
+  --color-highlighter-soft: var(--highlighter-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+
+  /* Literata for reading, Schibsted Grotesk for the interface around it. */
+  --font-reading: 'Literata Variable', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Schibsted Grotesk Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* 1.25 type scale */
+  --text-2xs: 0.8rem;
+  --text-xs: 0.875rem;
+  --text-sm: 1rem;
+  --text-base: 1.125rem;
+  --text-lg: 1.4rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.2rem;
+
+  /* Radius by hierarchy, not one value everywhere. */
+  --radius-control: 6px; /* inputs, buttons */
+  --radius-composer: 12px;
+  --radius-sheet: 4px; /* it is paper */
+  --radius-popover: 8px;
+
+  /* Only the composer and popovers get elevation. */
+  --shadow-composer: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.06);
+  --shadow-popover: 0 4px 12px rgb(0 0 0 / 0.08), 0 16px 40px rgb(0 0 0 / 0.12);
+}
